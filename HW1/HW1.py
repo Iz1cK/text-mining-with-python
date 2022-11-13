@@ -1,4 +1,7 @@
-text = open('HW1/text.txt',encoding="utf8")
+#%%
+from matplotlib import pyplot
+
+text = open('text.txt',encoding="utf8")
 string = text.read().lower()
 
 nonletters = set('\n')
@@ -7,7 +10,6 @@ for line in string:
     for word in wordsinline:
         for char in word.lower():
             if(char < 'a' or char > 'z'):
-                if not char == '\n':
                     nonletters.add(char)
 
 for char in nonletters:
@@ -37,3 +39,15 @@ for word in string:
 distinct_words = set(three_letter_plus_words)
 print("Count of all words with 3 or more letters is: " + str(count))
 print("Count of all distinct words with 3 or more letters is: " + str(len(distinct_words)))
+
+top_100_words = sorted(words,reverse=True,key=words.get)[:100]
+count_100_words = []
+for word in top_100_words:
+    count_100_words.append(words[word])
+x = range(1,101)
+pyplot.scatter(x,count_100_words)
+for i in range(0,5):
+    pyplot.text(x[i],count_100_words[i],top_100_words[i])
+
+
+# %%
