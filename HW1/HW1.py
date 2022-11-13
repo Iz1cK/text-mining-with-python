@@ -27,3 +27,13 @@ for i in range(len(string)-1):
     bigrams[str(string[i] + " " + string[i+1])] = bigrams.get(str(string[i] + " " + string[i+1]),0) + 1
 max_bigram = [word for word,count in bigrams.items() if count == max(bigrams.values())]
 print(max_bigram[0] + ": " + str(bigrams.get(max_bigram[0])))
+
+three_letter_plus_words = []
+count = 0
+for word in string:
+    if len(word) >= 3:
+        count += 1
+        three_letter_plus_words.append(word)
+distinct_words = set(three_letter_plus_words)
+print("Count of all words with 3 or more letters is: " + str(count))
+print("Count of all distinct words with 3 or more letters is: " + str(len(distinct_words)))
