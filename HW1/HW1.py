@@ -44,5 +44,7 @@ for word in top_100_words:
     count_100_words.append(words[word])
 x = range(1,101)
 pyplot.scatter(x,count_100_words)
+
+
 for i in range(0,5):
     pyplot.text(x[i],count_100_words[i],top_100_words[i])
